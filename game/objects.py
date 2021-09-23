@@ -13,8 +13,9 @@ class Object:
 class GridBasedObject(Object):
     def __init__(self, grid: list, x=0, y=0, width=0, height=0, color=(0, 0, 0)):
         super(GridBasedObject, self).__init__(x, y, width, height, color)
-        self.x = int(x / len(grid[0])) * len(grid[0])
-        self.y = int(y / len(grid)) * len(grid)
+        scale=1280/len(grid)
+        self.x = int(x / scale) * scale
+        self.y = int(y / scale) * scale
 
 
 class Plant(Object):

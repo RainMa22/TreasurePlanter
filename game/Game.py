@@ -12,7 +12,7 @@ class Game:
         self.grid = []
         for i in range(int(screen.get_width() / 16)):
             self.grid.append([])
-            for j in range(int(screen.get_width() / 16)):
+            for j in range(int(screen.get_height() / 16)):
                 self.grid[i].append(0)
         self.collidesWith = collidesWith
         self.circumvent = circumvent
@@ -20,8 +20,8 @@ class Game:
         self.speed = 2
         self.movements = [False, False, False, False]
         self.plants = []
-        self.player = Object(8, 8, 16, 16)
-        self.list = generate(90, screen.get_size())
+        self.player = Object(0, 0, 16, 16)
+        self.list = generate(500, self.grid,screen.get_size())
 
     def make_move(self, player, normal=True, speed=2):
         if speed == 1:
